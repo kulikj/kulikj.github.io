@@ -1,0 +1,108 @@
+
+body {
+    font-family: Arial;
+}
+
+h1 {
+    text-align: center;
+}
+
+.center{
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    flex:50%;
+}
+
+.description {
+    max-width: 80%;
+  }
+
+.tooltip {
+    position: absolute;
+    max-width: 200px;
+    height: auto;
+    padding: 5px;
+    background-color: rgb(6, 44, 56);
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    pointer-events: none; /* CRITICAL disable mouse */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+
+rect {
+    z-index: 0;
+}
+
+text {
+    user-select: none;
+}
+
+/* Style the checkboxes */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #999;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+    top: 5px;
+}
+
+/* Style the checked state */
+input[type="checkbox"]:checked:before {
+    content: "\2713";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #fff;
+    background-color: #337ab7;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+}
+label{
+    font-size:15px;
+    user-select: none;
+}
+label:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+#vis1div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 19px;
+}
+
+#selectCompanies{
+    position: absolute;
+    margin-top: 200px;
+    left: 690px;
+
+}
+
+h2 {
+    margin: 0;
+}
