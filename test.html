@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Jacob Kulik</title>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <link href="https://unpkg.com/@tailwindcss/transition@3.0/dist/transition.min.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+	</head>
+    <body>
+        <button class="menu-btn block md:hidden mx-5 mt-10">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <ul class="hidden md:flex justify-between text-gray-400 mt-10 md:mx-32 sm:mx-16 md:text-lg text-base">
+            <li class="name">
+              <a class="block px-4 py-2 text-black font-semibold">Jacob Kulik</a>
+            </li>
+            <li class="flex items-center justify-end">
+              <a href="" class="hover:text-black md:px-4 px-2 py-2">Home</a>
+              <a href="/projects/" class="hover:text-black md:px-4 px-2 py-2">Projects</a>
+              <a href="/chess/" class="hover:text-black md:px-4 px-2 py-2">Chess</a>
+              <a target="_blank" href="JacobKulikResume.pdf" class="hover:text-black md:px-4 px-2 py-2">CV</a>
+            </li>
+          </ul>
+
+          <ul class="mobile-menu flex hidden md:hidden absolute top-full left-0 ml-3 px-2 py-2 bg-gray-100">
+            <li><a href="/" class="hover:text-black py-2 block justify-end">Home</a></li>
+            <li><a href="/projects/" class="hover:text-black block py-2">Projects</a></li>
+            <li><a href="/chess/" class="hover:text-black block py-2">Chess</a></li>
+            <li><a href="JacobKulikResume.pdf" target="_blank" class="hover:text-black block py-2">CV</a></li>
+          </ul>
+
+          <script>
+            const menuBtn = document.querySelector(".menu-btn");
+            const mobileMenu = document.querySelector(".mobile-menu");
+          
+            let menuOpen = false;
+            menuBtn.addEventListener("click", () => {
+              if (!menuOpen) {
+                menuBtn.classList.add("open");
+                mobileMenu.classList.add("show");
+                menuOpen = true;
+              } else {
+                menuBtn.classList.remove("open");
+                mobileMenu.classList.remove("show");
+                menuOpen = false;
+              }
+            });
+          </script>
+
+    </body>
+
+</html>

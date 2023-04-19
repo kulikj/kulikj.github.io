@@ -18,7 +18,7 @@
                   </li>
                   <li class="flex items-center justify-end">
                     <a href="../" class="hover:text-black md:px-4 px-2 py-2">Home</a>
-                    <a href="" class="hover:text-black md:px-4 px-2 py-2">Projects</a>
+                    <a href="" class="text-black hover:text-black md:px-4 px-2 py-2">Projects</a>
                     <a href="../chess/" class="hover:text-black md:px-4 px-2 py-2">Chess</a>
                     <a target="_blank" href="../JacobKulikResume.pdf" class="hover:text-black md:px-4 px-2 py-2">CV</a>
                   </li>
@@ -35,47 +35,49 @@
             </div>
 
             <!-- Project Section -->
-            <div class="container mx-auto px-4 lg:px-8 py-8">
+            <div class="container mx-auto px-4 lg:px-8 py-8 max-w-6xl">
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                 <!-- FinViz Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden">
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between">
                   <img src="finviz/preview.png" alt="FinViz" class="object-cover">
                   <div class="p-4">
                     <h3 class="font-bold text-lg mb-2">FinViz - Balance Sheet Visualizer</h3>
                     <p class="text-gray-700 text-sm mb-2 italic">January 2023 - April 2023</p>
                     <p class="text-gray-700 text-base mb-4">Engineered interactive tool visualizing 10-K data using CSS, JS, and D3 library, for introductory finance class students.
                       Implemented time-series and cross-sectional analysis with filters and tooltips to allow for comparisons across firms and years.</p>
-                    <div class="flex justify-between mt-auto">
-                      <div class="flex flex-wrap">
-                        <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">JavaScript</span>
-                        <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">D3.js</span>
-                        <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">CSS</span>
-                      </div>
-                      <div class="flex items-end text-gray-400">
-                        <a href="finviz/" target="_blank" alt="Final Visualization" title="Final Visualization" class="hover:text-black ml-4">
-                          <i class="fa-solid fa-play"></i>
-                        </a>
-                        <a href="finviz/report/finalreport.pdf" alt="Final Paper" target="_blank" title="Final Paper" data-tip="Paper" aria-label="Paper" class="hover:text-black ml-4">
-                          <i class="fa-solid fa-file fa-lg"></i>
-                        </a>
-                        <a href="https://github.com/kulikj/project-finance-viz" alt="GitHub" title="GitHub" target="_blank" class="hover:text-black ml-4">
-                          <i class="fa-brands fa-github fa-lg"></i>
-                        </a>
-                      </div>
+                  </div>
+                  
+                  <div class="p-4 flex justify-between items-center">
+                    <div>
+                      <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">JavaScript</span>
+                      <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">D3.js</span>
+                      <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">CSS</span>
+                    </div>
+                    <div class="flex items-end text-gray-400">
+                      <a href="finviz/" target="_blank" alt="Final Visualization" title="Final Visualization" class="hover:text-black ml-4">
+                        <i class="fa-solid fa-play"></i>
+                      </a>
+                      <a href="finviz/report/finalreport.pdf" alt="Final Paper" target="_blank" title="Final Paper" data-tip="Paper" aria-label="Paper" class="hover:text-black ml-4">
+                        <i class="fa-solid fa-file fa-lg"></i>
+                      </a>
+                      <a href="https://github.com/kulikj/project-finance-viz" alt="GitHub" title="GitHub" target="_blank" class="hover:text-black ml-4">
+                        <i class="fa-brands fa-github fa-lg"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
                 
                 <!-- ReceipTrack Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden">
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between">
                   <img src="receiptrack/preview.png" alt="RecepTrack" class="object-cover">
                   <div class="p-4">
                     <h3 class="font-bold text-lg mb-2">ReceipTrack - Receipt Image Processing</h3>
                     <p class="text-gray-700 text-sm mb-2 italic">October 2022 - December 2022</p>
                     <p class="text-gray-700 text-base mb-4">Developed dashboard web app tool in team of 4 that analyzes receipt images using OCR to produce shopping habit insights. 
                       Incorporated object-oriented design and Plotly Dash to visualize spending trends over time and across food groups.</p>
-                    <div class="flex justify-between mt-auto">
-                        <div class="flex flex-wrap">
+                  </div>
+                      <div class="p-4 flex justify-between items-center">
+                        <div class="">
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Python</span>
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Plotly</span>
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Pytesseract</span>
@@ -89,11 +91,10 @@
                           </a>
                         </div>
                       </div>
-                  </div>
                 </div>
 
                 <!-- Credit Default Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden">
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between">
                   <img src="credit/preview.png" alt="CreditDefaults" class="object-cover">
                   <div class="p-4">
                     <h3 class="font-bold text-lg mb-2">Supervised Learning in Credit Defaults</h3>
@@ -101,7 +102,8 @@
                     <p class="text-gray-700 text-base mb-4">Created and implemented KNN, decision tree, and logistic regression algorithms using Taiwanese credit card data from 2005, resulting in an accuracy of around 68% in predicting default.
                       Utilized sklearn and keras libraries to train and evaluate a Random Forest and neural network models, resulting in accuracies above 70%.
                     </p>
-                    <div class="flex justify-between mt-auto">
+                  </div>
+                    <div class="p-4 flex justify-between items-center">
                         <div class="flex flex-wrap">
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Python</span>
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Keras</span>
@@ -119,18 +121,18 @@
                           </a>
                         </div>
                       </div>
-                  </div>
                 </div>
                 
                 <!-- Predictor Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden">
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between">
                   <img src="predictor/preview.png" alt="Predictor Project" class="object-cover">
                   <div class="p-4">
                     <h3 class="font-bold text-lg mb-2">Programming Language Predictor</h3>
                     <p class="text-gray-700 text-sm mb-2 italic">March 2022 - April 2022</p>
                     <p class="text-gray-700 text-base mb-4">Tokenized GitHub Repository code snippets with Regex and TF-IDF to train a Multinomial Naive Bayes Classifier.
                       Launched machine learning model on Heroku with Python framework Flask to predict programming language of user input.</p>
-                    <div class="flex justify-between mt-auto">
+                  </div>
+                    <div class="p-4 flex justify-between items-center">
                         <div class="flex flex-wrap">
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Python</span>
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Sklearn</span>
@@ -148,18 +150,18 @@
                           </a>
                         </div>
                       </div>
-                  </div>
                 </div>
 
                 <!-- Forex Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden">
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between">
                   <img src="forex/preview.png" alt="Forex" class="object-cover">
                   <div class="p-4">
                     <h3 class="font-bold text-lg mb-2">Foreign Exchange Machine Learning Analysis</h3>
                     <p class="text-gray-700 text-sm mb-2 italic">October 2022 - December 2022</p>
                     <p class="text-gray-700 text-base mb-4">Analyzed movement of foreign exchange currencies with Linear and Multiple Regression models using Sklearn. 
                       Explored relationship between Non-Euro, non-pegged EU nation currencies and the Euro through a Random Forest Classifier, achieving an r2 score of 0.987.</p>
-                    <div class="flex justify-between mt-auto">
+                  </div>
+                      <div class="p-4 flex justify-between items-center">
                         <div class="flex flex-wrap">
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Python</span>
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Sklearn</span>
@@ -177,18 +179,18 @@
                           </a>
                         </div>
                       </div>
-                  </div>
                 </div>
 
                 <!-- Schedule Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden">
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between">
                   <img src="schedule/preview.png" alt="Schedule Planner" class="object-cover">
                   <div class="p-4">
                     <h3 class="font-bold text-lg mb-2">Schedule Planner - Database Software Product</h3>
                     <p class="text-gray-700 text-sm mb-2 italic">October 2022 - December 2022</p>
                     <p class="text-gray-700 text-base mb-4">Developed a user-friendly application using SQL and Flask, enabling advisors and students to understand and plan academic schedules.
                       Utilized Docker and Ngrok to connect REST Api in AppSmith to host the MVP, ensuring a functional and operational application that utilizes a schedule database.</p>
-                    <div class="flex justify-between mt-auto">
+                  </div>
+                      <div class="p-4 flex justify-between items-center">
                         <div class="flex flex-wrap">
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">SQL</span>
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Flask</span>
@@ -201,18 +203,18 @@
                           </a>
                         </div>
                       </div>
-                  </div>
                 </div>
 
                 <!-- Compensation Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden">
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between">
                   <img src="compensation/preview.png" alt="Compensation" class="object-cover">
                   <div class="p-4">
                     <h3 class="font-bold text-lg mb-2">Company Success and Executive Compensation</h3>
                     <p class="text-gray-700 text-sm mb-2 italic">December 2021 - January 2022</p>
                     <p class="text-gray-700 text-base mb-4">Evaluated correlation between increase in the success of a company and the compensation for top executives with Python. 
                       Wrangled stock data for over 500 companies using Pandas library on Compustat and CRSP databases.</p>
-                    <div class="flex justify-between mt-auto">
+                  </div>
+                      <div class="p-4 flex justify-between items-center">
                         <div class="flex flex-wrap">
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Python</span>
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Pandas</span>
@@ -227,18 +229,18 @@
                           </a>
                         </div>
                       </div>
-                  </div>
                 </div>
 
                 <!-- Financial Data Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden">
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between">
                   <img src="financialdata/preview.png" alt="Financial Data" class="object-cover">
                   <div class="p-4">
                     <h3 class="font-bold text-lg mb-2">Financial Data and Stock Price Investigation</h3>
                     <p class="text-gray-700 text-sm mb-2 italic">October 2021 - December 2021</p>
                     <p class="text-gray-700 text-base mb-4">Assembled financial data for Apple and Google over a 20 year period using Compustat and CRSP in WRDS.
                        Quantified correlation between 10-Q ratios and stock prices in Python, researched company strategies to highlight trends.</p>
-                    <div class="flex justify-between mt-auto">
+                  </div>
+                      <div class="p-4 flex justify-between items-center">
                         <div class="flex flex-wrap">
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Python</span>
                           <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2">Pandas</span>
@@ -289,7 +291,7 @@
               </div>
             </div>
         </div>
-
+        <script src="/js/main.js"></script>
     </body>
 
 </html>
