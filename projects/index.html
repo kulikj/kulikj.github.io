@@ -1,301 +1,376 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Jacob Kulik</title>
+		<title>Jacob Kulik - Projects</title>
 		<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+                color: #1a1a1a;
+                padding-top: 4rem; /* Add padding to account for fixed header */
+            }
+            .nav-link {
+                transition: color 0.2s ease;
+            }
+            .nav-link:hover {
+                color: #1a1a1a;
+            }
+            .project-card {
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .project-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+            .mobile-menu {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            .mobile-menu.active {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            .mobile-menu-item {
+                transition: transform 0.2s ease, opacity 0.2s ease;
+                transform: translateX(20px);
+                opacity: 0;
+            }
+            .mobile-menu.active .mobile-menu-item {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            .mobile-menu.active .mobile-menu-item:nth-child(1) { transition-delay: 0.1s; }
+            .mobile-menu.active .mobile-menu-item:nth-child(2) { transition-delay: 0.2s; }
+            .mobile-menu.active .mobile-menu-item:nth-child(3) { transition-delay: 0.3s; }
+            .mobile-menu.active .mobile-menu-item:nth-child(4) { transition-delay: 0.4s; }
+            .mobile-menu.active .mobile-menu-item:nth-child(5) { transition-delay: 0.5s; }
+            .hamburger {
+                width: 24px;
+                height: 24px;
+                position: relative;
+                margin-right: 1rem;
+            }
+            .hamburger-line {
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: currentColor;
+                transition: all 0.3s ease;
+            }
+            .hamburger-line:nth-child(1) {
+                top: 6px;
+            }
+            .hamburger-line:nth-child(2) {
+                top: 12px;
+            }
+            .hamburger-line:nth-child(3) {
+                top: 18px;
+            }
+            .hamburger.active .hamburger-line:nth-child(1) {
+                transform: translateY(6px) rotate(45deg);
+            }
+            .hamburger.active .hamburger-line:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            .hamburger.active .hamburger-line:nth-child(3) {
+                transform: translateY(-6px) rotate(-45deg);
+            }
+        </style>
 	</head>
-    <body>
-        <div>
+    <body class="bg-gray-50">
+        <div class="min-h-screen flex flex-col">
             <!-- Top Navigation Bar -->
-            <div>
-              <ul class="flex justify-between text-gray-400  mt-10 md:mx-32 sm:mx-16 md:text-lg text-base">
-                  <li class="name">
-                    <a class="block px-4 py-2 text-black font-semibold">Jacob Kulik</a>
-                  </li>
-                  <li class="flex items-center justify-end">
-                    <a href="../" class="hover:text-black md:px-4 px-2 py-2">Home</a>
-                    <a href="" class="text-black hover:text-black md:px-4 px-2 py-2">Projects</a>
-                    <a href="../chess/" class="hover:text-black md:px-4 px-2 py-2">Chess</a>
-                    <a target="_blank" href="../JacobKulikResume.pdf" class="hover:text-black md:px-4 px-2 py-2">CV</a>
-                  </li>
-                </ul>
-            </div>
-
-            <div class="container mx-auto flex flex-col justify-center items-center text-center pt-5 pb-5 md:pt-10">
-                  <h1 class="text-xl md:text-2xl p-4">Collection of my Data Science and Finance Projects</h1>
-            </div>
-
-            <!-- Line Separator -->
-            <div class="flex justify-center mb-5">
-              <hr class="w-1/2 border-1 border-black">
-            </div>
-
-            <!-- Project Section -->
-            <div class="container mx-auto px-4 lg:px-8 pt-10 pb-20">
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-
-                <!-- FinViz Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between transform transition duration-500 hover:scale-105">
-                  <img src="finviz/preview.png" alt="FinViz" class="object-cover">
-                  <div class="p-4">
-                    <h3 class="font-bold text-lg mb-2">FinViz - Balance Sheet Visualizer</h3>
-                    <p class="text-gray-700 text-sm mb-2 italic">January 2023 - April 2023</p>
-                    <p class="text-gray-700 text-base mb-4">Engineered interactive tool visualizing 10-K data using CSS, JS, and D3 library, for introductory finance class students.
-                      Implemented time-series and cross-sectional analysis with filters and tooltips to allow for comparisons across firms and years.</p>
-                  </div>
-                  
-                  <div class="p-4 flex justify-between">
-                    <div class="flex flex-wrap">
-                      <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">JavaScript</span>
-                      <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">D3.js</span>
-                      <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">CSS</span>
+            <nav class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between h-16">
+                        <div class="flex items-center ml-4">
+                            <a href="/" class="text-xl font-semibold text-gray-900">Jacob Kulik</a>
+                        </div>
+                        <!-- Desktop Navigation -->
+                        <div class="hidden md:flex items-center space-x-4">
+                            <a href="/" class="nav-link text-gray-600">Home</a>
+                            <a href="/projects/" class="nav-link text-gray-600">Projects</a>
+                            <a href="/chess/" class="nav-link text-gray-600">Chess</a>
+                            <a href="/dj/" class="nav-link text-gray-600">DJ</a>
+                            <a target="_blank" href="/JacobKulikResume.pdf" class="nav-link text-gray-600">CV</a>
+                        </div>
+                        <!-- Mobile Menu Button -->
+                        <div class="md:hidden flex items-center">
+                            <button type="button" class="text-gray-600 hover:text-gray-900 focus:outline-none" onclick="toggleMobileMenu()">
+                                <div class="hamburger">
+                                    <span class="hamburger-line"></span>
+                                    <span class="hamburger-line"></span>
+                                    <span class="hamburger-line"></span>
+                                </div>
+                            </button>
+                        </div>
                     </div>
-                    <div class="flex items-end text-gray-400">
-                      <a href="finviz/" target="_blank" alt="Final Visualization" title="Final Visualization" class="hover:text-black ml-4">
-                        <i class="fa-solid fa-play"></i>
-                      </a>
-                      <a href="finviz/presentation.pdf" alt="Final Presentation" title="Final Presentation" target="_blank" class="hover:text-black ml-4">
-                        <i class="fa-solid fa-laptop fa-lg"></i>
-                      </a>
-                      <a href="finviz/report/finalreport.pdf" alt="Final Paper" target="_blank" title="Final Paper" data-tip="Paper" aria-label="Paper" class="hover:text-black ml-4">
-                        <i class="fa-solid fa-file fa-lg"></i>
-                      </a>
-                      <a href="https://github.com/kulikj/project-finance-viz" alt="GitHub" title="GitHub" target="_blank" class="hover:text-black ml-4">
-                        <i class="fa-brands fa-github fa-lg"></i>
-                      </a>
+                </div>
+                <!-- Mobile Menu -->
+                <div class="mobile-menu md:hidden fixed top-16 right-0 w-48 bg-white shadow-lg rounded-bl-lg">
+                    <div class="flex flex-col">
+                        <div class="flex items-center p-4 border-b">
+                            <span class="text-lg font-semibold">Contents</span>
+                        </div>
+                        <div class="flex flex-col p-4 space-y-4">
+                            <a href="/" class="mobile-menu-item nav-link text-gray-600 text-lg">Home</a>
+                            <a href="/projects/" class="mobile-menu-item nav-link text-gray-600 text-lg">Projects</a>
+                            <a href="/chess/" class="mobile-menu-item nav-link text-gray-600 text-lg">Chess</a>
+                            <a href="/dj/" class="mobile-menu-item nav-link text-gray-600 text-lg">DJ</a>
+                            <a target="_blank" href="/JacobKulikResume.pdf" class="mobile-menu-item nav-link text-gray-600 text-lg">CV</a>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                
-                <!-- ReceipTrack Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between transform transition duration-500 hover:scale-105">
-                  <img src="receiptrack/preview.png" alt="RecepTrack" class="object-cover">
-                  <div class="p-4">
-                    <h3 class="font-bold text-lg mb-2">ReceipTrack - Receipt Image Processing</h3>
-                    <p class="text-gray-700 text-sm mb-2 italic">October 2022 - December 2022</p>
-                    <p class="text-gray-700 text-base mb-4">Developed dashboard web app tool in team of 4 that analyzes receipt images using OCR to produce shopping habit insights. 
-                      Incorporated object-oriented design and Plotly Dash to visualize spending trends over time and across food groups.</p>
-                  </div>
-                      <div class="p-4 flex justify-between">
-                        <div class="flex flex-wrap">
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Python</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Plotly</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Pytesseract</span>
-                        </div>
-                        <div class="flex items-end text-gray-400">
-                          <a href="receiptrack/report.pdf" target="_blank" alt="Final Paper" title="Final Paper" class="hover:text-black ml-4">
-                            <i class="fa-solid fa-file fa-lg"></i>
-                          </a>
-                          <a href="https://github.com/kulikj/ReceipTrack" alt="GitHub" title="GitHub" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-brands fa-github fa-lg"></i>
-                          </a>
-                        </div>
-                      </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="flex-grow">
+                <!-- Header Section -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <div class="text-center">
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4">Projects</h1>
+                        <p class="text-xl text-gray-600">Collection of my Data Science and Finance Projects</p>
+                    </div>
                 </div>
 
-                <!-- Credit Default Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between transform transition duration-500 hover:scale-105">
-                  <img src="credit/preview.png" alt="CreditDefaults" class="object-cover">
-                  <div class="p-4">
-                    <h3 class="font-bold text-lg mb-2">Supervised Learning in Credit Defaults</h3>
-                    <p class="text-gray-700 text-sm mb-2 italic">February 2023 - April 2023</p>
-                    <p class="text-gray-700 text-base mb-4">Created and implemented KNN, decision tree, and logistic regression algorithms using Taiwanese credit card data from 2005, resulting in an accuracy of around 68% in predicting default.
-                      Utilized sklearn and keras libraries to train and evaluate a Random Forest and neural network models, resulting in accuracies above 70%.
-                    </p>
-                  </div>
-                    <div class="p-4 flex justify-between">
-                        <div class="flex flex-wrap">
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Python</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Keras</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Sklearn</span>
+                <!-- Projects Grid -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- FinViz Project -->
+                        <div class="project-card bg-white rounded-lg shadow-sm overflow-hidden flex flex-col">
+                            <img src="finviz/preview.png" alt="FinViz" class="w-full h-48 object-cover">
+                            <div class="p-6 flex-grow">
+                                <h3 class="font-semibold text-lg mb-2">FinViz - Balance Sheet Visualizer</h3>
+                                <p class="text-sm text-gray-500 mb-4">January 2023 - April 2023</p>
+                                <p class="text-gray-700 mb-4">Engineered interactive tool visualizing 10-K data using CSS, JS, and D3 library, for introductory finance class students.
+                                    Implemented time-series and cross-sectional analysis with filters and tooltips to allow for comparisons across firms and years.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">JavaScript</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">D3.js</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">CSS</span>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-gray-100">
+                                <div class="flex justify-end space-x-4 text-gray-500">
+                                    <a href="finviz/" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-solid fa-play"></i>
+                                    </a>
+                                    <a href="finviz/presentation.pdf" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-solid fa-laptop"></i>
+                                    </a>
+                                    <a href="finviz/report/finalreport.pdf" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-solid fa-file"></i>
+                                    </a>
+                                    <a href="https://github.com/kulikj/project-finance-viz" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex items-end text-gray-400">
-                          <a href="credit/poster.pdf" alt="Final Poster" title="Final Poster" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-solid fa-laptop fa-lg"></i>
-                          </a>
-                          <a href="credit/report.pdf" target="_blank" alt="Final Paper" title="Final Paper" class="hover:text-black ml-4">
-                            <i class="fa-solid fa-file fa-lg"></i>
-                          </a>
-                          <a href="https://github.com/kulikj/Credit_Defaults" alt="GitHub" title="GitHub" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-brands fa-github fa-lg"></i>
-                          </a>
-                        </div>
-                      </div>
-                </div>
-                
-                <!-- Predictor Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between transform transition duration-500 hover:scale-105">
-                  <img src="predictor/preview.png" alt="Predictor Project" class="object-cover">
-                  <div class="p-4">
-                    <h3 class="font-bold text-lg mb-2">Programming Language Predictor</h3>
-                    <p class="text-gray-700 text-sm mb-2 italic">March 2022 - April 2022</p>
-                    <p class="text-gray-700 text-base mb-4">Tokenized GitHub Repository code snippets with Regex and TF-IDF to train a Multinomial Naive Bayes Classifier.
-                      Launched machine learning model on Heroku with Python framework Flask to predict programming language of user input.</p>
-                  </div>
-                    <div class="p-4 flex justify-between">
-                        <div class="flex flex-wrap">
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Python</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Sklearn</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Flask</span>
-                        </div>
-                        <div class="flex items-end text-gray-400">
-                          <a href="predictor/presentation.pdf" alt="Final Presentation" title="Final Presentation" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-solid fa-laptop fa-lg"></i>
-                          </a>
-                          <a href="predictor/report.pdf" target="_blank" alt="Final Paper" title="Final Paper" class="hover:text-black ml-4">
-                            <i class="fa-solid fa-file fa-lg"></i>
-                          </a>
-                          <a href="https://github.com/kulikj/programmingpredictor" alt="GitHub" title="GitHub" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-brands fa-github fa-lg"></i>
-                          </a>
-                        </div>
-                      </div>
-                </div>
 
-                <!-- Forex Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between transform transition duration-500 hover:scale-105">
-                  <img src="forex/preview.png" alt="Forex" class="object-cover">
-                  <div class="p-4">
-                    <h3 class="font-bold text-lg mb-2">Foreign Exchange Machine Learning Analysis</h3>
-                    <p class="text-gray-700 text-sm mb-2 italic">October 2022 - December 2022</p>
-                    <p class="text-gray-700 text-base mb-4">Analyzed movement of foreign exchange currencies with Linear and Multiple Regression models using Sklearn. 
-                      Explored relationship between Non-Euro, non-pegged EU nation currencies and the Euro through a Random Forest Classifier, achieving an r2 score of 0.987.</p>
-                  </div>
-                      <div class="p-4 flex justify-between">
-                        <div class="flex flex-wrap">
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Python</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Sklearn</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Pandas</span>
+                        <!-- ReceipTrack Project -->
+                        <div class="project-card bg-white rounded-lg shadow-sm overflow-hidden flex flex-col">
+                            <img src="receiptrack/preview.png" alt="RecepTrack" class="w-full h-48 object-cover">
+                            <div class="p-6 flex-grow">
+                                <h3 class="font-semibold text-lg mb-2">ReceipTrack - Receipt Image Processing</h3>
+                                <p class="text-sm text-gray-500 mb-4">October 2022 - December 2022</p>
+                                <p class="text-gray-700 mb-4">Developed dashboard web app tool in team of 4 that analyzes receipt images using OCR to produce shopping habit insights. 
+                                    Incorporated object-oriented design and Plotly Dash to visualize spending trends over time and across food groups.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Python</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Plotly</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Pytesseract</span>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-gray-100">
+                                <div class="flex justify-end space-x-4 text-gray-500">
+                                    <a href="receiptrack/report.pdf" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-solid fa-file"></i>
+                                    </a>
+                                    <a href="https://github.com/kulikj/ReceipTrack" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex items-end text-gray-400">
-                          <a href="forex/presentation.pdf" alt="Final Presentation" title="Final Presentation" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-solid fa-laptop fa-lg"></i>
-                          </a>
-                          <a href="forex/report.pdf" alt="Final Paper" title="Final Paper" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-solid fa-file fa-lg"></i>
-                          </a>
-                          <a href="https://github.com/kulikj/Forex_Project" alt="GitHub" title="GitHub" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-brands fa-github fa-lg"></i>
-                          </a>
-                        </div>
-                      </div>
-                </div>
 
-                <!-- Schedule Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between transform transition duration-500 hover:scale-105">
-                  <img src="schedule/preview.png" alt="Schedule Planner" class="object-cover">
-                  <div class="p-4">
-                    <h3 class="font-bold text-lg mb-2">Schedule Planner - Database Software Product</h3>
-                    <p class="text-gray-700 text-sm mb-2 italic">October 2022 - December 2022</p>
-                    <p class="text-gray-700 text-base mb-4">Developed a user-friendly application using SQL and Flask, enabling advisors and students to understand and plan academic schedules.
-                      Utilized Docker and Ngrok to connect REST Api in AppSmith to host the MVP, ensuring a functional and operational application that utilizes a schedule database.</p>
-                  </div>
-                      <div class="p-4 flex justify-between">
-                        <div class="flex flex-wrap">
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">SQL</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Flask</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Docker</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Appsmith</span>
+                        <!-- Credit Default Project -->
+                        <div class="project-card bg-white rounded-lg shadow-sm overflow-hidden flex flex-col">
+                            <img src="credit/preview.png" alt="CreditDefaults" class="w-full h-48 object-cover">
+                            <div class="p-6 flex-grow">
+                                <h3 class="font-semibold text-lg mb-2">Supervised Learning in Credit Defaults</h3>
+                                <p class="text-sm text-gray-500 mb-4">February 2023 - April 2023</p>
+                                <p class="text-gray-700 mb-4">Created and implemented KNN, decision tree, and logistic regression algorithms using Taiwanese credit card data from 2005, resulting in an accuracy of around 68% in predicting default.
+                                    Utilized sklearn and keras libraries to train and evaluate a Random Forest and neural network models, resulting in accuracies above 70%.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Python</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Keras</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Sklearn</span>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-gray-100">
+                                <div class="flex justify-end space-x-4 text-gray-500">
+                                    <a href="credit/poster.pdf" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-solid fa-laptop"></i>
+                                    </a>
+                                    <a href="credit/report.pdf" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-solid fa-file"></i>
+                                    </a>
+                                    <a href="https://github.com/kulikj/Credit_Defaults" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex items-end text-gray-400">                          
-                          <a href="https://github.com/kulikj/cs3200-108" alt="GitHub" title="GitHub" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-brands fa-github fa-lg"></i>
-                          </a>
-                        </div>
-                      </div>
-                </div>
 
-                <!-- Compensation Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between transform transition duration-500 hover:scale-105">
-                  <img src="compensation/preview.png" alt="Compensation" class="object-cover">
-                  <div class="p-4">
-                    <h3 class="font-bold text-lg mb-2">Company Success and Executive Compensation</h3>
-                    <p class="text-gray-700 text-sm mb-2 italic">December 2021 - January 2022</p>
-                    <p class="text-gray-700 text-base mb-4">Evaluated correlation between increase in the success of a company and the compensation for top executives with Python. 
-                      Wrangled stock data for over 500 companies using Pandas library on Compustat and CRSP databases.</p>
-                  </div>
-                      <div class="p-4 flex justify-between">
-                        <div class="flex flex-wrap">
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Python</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Pandas</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">NumPy</span>
+                        <!-- Predictor Project -->
+                        <div class="project-card bg-white rounded-lg shadow-sm overflow-hidden flex flex-col">
+                            <img src="predictor/preview.png" alt="Predictor Project" class="w-full h-48 object-cover">
+                            <div class="p-6 flex-grow">
+                                <h3 class="font-semibold text-lg mb-2">Programming Language Predictor</h3>
+                                <p class="text-sm text-gray-500 mb-4">March 2022 - April 2022</p>
+                                <p class="text-gray-700 mb-4">Tokenized GitHub Repository code snippets with Regex and TF-IDF to train a Multinomial Naive Bayes Classifier.
+                                    Launched machine learning model on Heroku with Python framework Flask to predict programming language of user input.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Python</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Sklearn</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Flask</span>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-gray-100">
+                                <div class="flex justify-end space-x-4 text-gray-500">
+                                    <a href="predictor/presentation.pdf" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-solid fa-laptop"></i>
+                                    </a>
+                                    <a href="predictor/report.pdf" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-solid fa-file"></i>
+                                    </a>
+                                    <a href="https://github.com/kulikj/programmingpredictor" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex items-end text-gray-400">
-                          <a href="compensation/presentation.pdf" alt="Final Presentation" title="Final Presentation" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-solid fa-laptop fa-lg"></i>
-                          </a>
-                          <a href="https://github.com/kulikj/data-application" alt="GitHub" title="GitHub" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-brands fa-github fa-lg"></i>
-                          </a>
-                        </div>
-                      </div>
-                </div>
 
-                <!-- Financial Data Project -->
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col justify-between transform transition duration-500 hover:scale-105">
-                  <img src="financialdata/preview.png" alt="Financial Data" class="object-cover">
-                  <div class="p-4">
-                    <h3 class="font-bold text-lg mb-2">Financial Data and Stock Price Investigation</h3>
-                    <p class="text-gray-700 text-sm mb-2 italic">October 2021 - December 2021</p>
-                    <p class="text-gray-700 text-base mb-4">Assembled financial data for Apple and Google over a 20 year period using Compustat and CRSP in WRDS.
-                       Quantified correlation between 10-Q ratios and stock prices in Python, researched company strategies to highlight trends.</p>
-                  </div>
-                      <div class="p-4 flex justify-between">
-                        <div class="flex flex-wrap">
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Python</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Pandas</span>
-                          <span class="bg-gray-200 text-gray-800 text-sm font-semibold py-1 px-2 rounded-full mr-2 mt-2">Matplotlib</span>
+                        <!-- Forex Project -->
+                        <div class="project-card bg-white rounded-lg shadow-sm overflow-hidden flex flex-col">
+                            <img src="forex/preview.png" alt="Forex" class="w-full h-48 object-cover">
+                            <div class="p-6 flex-grow">
+                                <h3 class="font-semibold text-lg mb-2">Foreign Exchange Machine Learning Analysis</h3>
+                                <p class="text-sm text-gray-500 mb-4">October 2022 - December 2022</p>
+                                <p class="text-gray-700 mb-4">Analyzed movement of foreign exchange currencies with Linear and Multiple Regression models using Sklearn. 
+                                    Explored relationship between Non-Euro, non-pegged EU nation currencies and the Euro through a Random Forest Classifier, achieving an r2 score of 0.987.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Python</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Sklearn</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Pandas</span>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-gray-100">
+                                <div class="flex justify-end space-x-4 text-gray-500">
+                                    <a href="forex/presentation.pdf" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-solid fa-laptop"></i>
+                                    </a>
+                                    <a href="forex/report.pdf" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-solid fa-file"></i>
+                                    </a>
+                                    <a href="https://github.com/kulikj/Forex_Project" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex items-end text-gray-400">
-                          <a href="financialdata/presentation.pdf" alt="Final Presentation" title="Final Presentation" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-solid fa-laptop fa-lg"></i>
-                          </a>
-                          <a href="https://github.com/kulikj/ds2001-project" alt="GitHub" title="GitHub" target="_blank" class="hover:text-black ml-4">
-                            <i class="fa-brands fa-github fa-lg"></i>
-                          </a>
+
+                        <!-- Schedule Project -->
+                        <div class="project-card bg-white rounded-lg shadow-sm overflow-hidden flex flex-col">
+                            <img src="schedule/preview.png" alt="Schedule Planner" class="w-full h-48 object-cover">
+                            <div class="p-6 flex-grow">
+                                <h3 class="font-semibold text-lg mb-2">Schedule Planner - Database Software Product</h3>
+                                <p class="text-sm text-gray-500 mb-4">October 2022 - December 2022</p>
+                                <p class="text-gray-700 mb-4">Developed a user-friendly application using SQL and Flask, enabling advisors and students to understand and plan academic schedules.
+                                    Utilized Docker and Ngrok to connect REST Api in AppSmith to host the MVP, ensuring a functional and operational application that utilizes a schedule database.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">SQL</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Flask</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Docker</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Appsmith</span>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-gray-100">
+                                <div class="flex justify-end space-x-4 text-gray-500">
+                                    <a href="https://github.com/kulikj/cs3200-108" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                  </div>
-                </div>
 
+                        <!-- Compensation Project -->
+                        <div class="project-card bg-white rounded-lg shadow-sm overflow-hidden flex flex-col">
+                            <img src="compensation/preview.png" alt="Compensation" class="w-full h-48 object-cover">
+                            <div class="p-6 flex-grow">
+                                <h3 class="font-semibold text-lg mb-2">Company Success and Executive Compensation</h3>
+                                <p class="text-sm text-gray-500 mb-4">December 2021 - January 2022</p>
+                                <p class="text-gray-700 mb-4">Evaluated correlation between increase in the success of a company and the compensation for top executives with Python. 
+                                    Wrangled stock data for over 500 companies using Pandas library on Compustat and CRSP databases.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Python</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">Pandas</span>
+                                    <span class="bg-gray-100 text-gray-800 text-sm font-medium py-1 px-3 rounded-full">NumPy</span>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-gray-100">
+                                <div class="flex justify-end space-x-4 text-gray-500">
+                                    <a href="compensation/presentation.pdf" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-solid fa-laptop"></i>
+                                    </a>
+                                    <a href="https://github.com/kulikj/data-application" target="_blank" class="hover:text-gray-900 transition-colors">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              
-            </div>
-
-            <!-- Top of Page Button -->
-            <a href="#top" class="fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 ease-in-out py-1 px-2 sm:bottom-2 sm:right-2">
-              <i class="fa-solid fa-arrow-up text-sm"></i>
-            </a>
+            </main>
 
             <!-- Footer -->
-            <div>
-              <div class="bg-gray-100">
-                  <div class="md:mx-32 sm:mx-16 py-6 flex justify-between items-center text-gray-400 md:text-lg text-base">
-                    <p class="ml-4">Jacob Kulik &copy; 2023</p>
-                    <ul class="flex items-center">
-                      <li class="md:px-4 px-2">
-                        <a href="../" class="hover:text-black">Home</a>
-                      </li>
-                      <li class="md:px-4 px-2">
-                        <a href="" class="text-black hover:text-black">Projects</a>
-                      </li>
-                      <li class="md:px-4 px-2">
-                        <a href="../chess/" class="hover:text-black">Chess</a>
-                      </li>
-                      <li class="md:px-4 px-2">
-                        <a target="_blank" href="../JacobKulikResume.pdf" class="hover:text-black">CV</a>
-                      </li>
-                    </ul>
-                  </div>
-              </div>
-            </div>
+            <footer class="bg-white border-t">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                    <div class="flex flex-row justify-between items-center">
+                        <p class="text-gray-600">J.K. &copy; 2025</p>
+                        <div class="flex space-x-4">
+                            <a href="/" class="nav-link text-gray-600">Home</a>
+                            <a href="/projects/" class="nav-link text-gray-600">Projects</a>
+                            <a href="/chess/" class="nav-link text-gray-600">Chess</a>
+                            <a href="/dj/" class="nav-link text-gray-600">DJ</a>
+                            <a target="_blank" href="/JacobKulikResume.pdf" class="nav-link text-gray-600">CV</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
+
+        <!-- Back to Top Button -->
+        <a href="#top" class="fixed bottom-4 right-4 bg-gray-800 text-white rounded-full p-3 transition duration-300 ease-in-out hover:bg-gray-700">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+
+        <script>
+            function toggleMobileMenu() {
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const hamburger = document.querySelector('.hamburger');
+                mobileMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            }
+        </script>
         <script src="/js/main.js"></script>
     </body>
-
 </html>

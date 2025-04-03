@@ -6,228 +6,296 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-        <link href="https://unpkg.com/@tailwindcss/transition@3.0/dist/transition.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+                color: #1a1a1a;
+                padding-top: 4rem; /* Add padding to account for fixed header */
+            }
+            .nav-link {
+                transition: color 0.2s ease;
+            }
+            .nav-link:hover {
+                color: #1a1a1a;
+            }
+            .experience-item {
+                transition: transform 0.2s ease;
+            }
+            .experience-item:hover {
+                transform: translateX(4px);
+            }
+            .mobile-menu {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            .mobile-menu.active {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            .mobile-menu-item {
+                transition: transform 0.2s ease, opacity 0.2s ease;
+                transform: translateX(20px);
+                opacity: 0;
+            }
+            .mobile-menu.active .mobile-menu-item {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            .mobile-menu.active .mobile-menu-item:nth-child(1) { transition-delay: 0.1s; }
+            .mobile-menu.active .mobile-menu-item:nth-child(2) { transition-delay: 0.2s; }
+            .mobile-menu.active .mobile-menu-item:nth-child(3) { transition-delay: 0.3s; }
+            .mobile-menu.active .mobile-menu-item:nth-child(4) { transition-delay: 0.4s; }
+            .mobile-menu.active .mobile-menu-item:nth-child(5) { transition-delay: 0.5s; }
+            .hamburger {
+                width: 24px;
+                height: 24px;
+                position: relative;
+                margin-right: 1rem;
+            }
+            .hamburger-line {
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: currentColor;
+                transition: all 0.3s ease;
+            }
+            .hamburger-line:nth-child(1) {
+                top: 6px;
+            }
+            .hamburger-line:nth-child(2) {
+                top: 12px;
+            }
+            .hamburger-line:nth-child(3) {
+                top: 18px;
+            }
+            .hamburger.active .hamburger-line:nth-child(1) {
+                transform: translateY(6px) rotate(45deg);
+            }
+            .hamburger.active .hamburger-line:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            .hamburger.active .hamburger-line:nth-child(3) {
+                transform: translateY(-6px) rotate(-45deg);
+            }
+        </style>
 	</head>
-    <body>
-        <div>
+    <body class="bg-gray-50">
+        <div class="min-h-screen flex flex-col">
             <!-- Top Navigation Bar -->
-            <div class="">
-                <ul class="flex justify-between text-gray-400 mt-10 md:mx-32 sm:mx-16 md:text-lg text-base">
-                    <li class="name">
-                      <a class="block px-4 py-2 text-black font-semibold">Jacob Kulik</a>
-                    </li>
-                    <li class="flex items-center justify-end">
-                      <a href="" class="text-black hover:text-black md:px-4 px-2 py-2">Home</a>
-                      <a href="/projects/" class="hover:text-black md:px-4 px-2 py-2">Projects</a>
-					  <a href="/chess/" class="hover:text-black md:px-4 px-2 py-2">Chess</a>
-                      <a target="_blank" href="JacobKulikResume.pdf" class="hover:text-black md:px-4 pl-2 pr-4 py-2">CV</a>
-                    </li>
-                  </ul>
-            </div>
-
-
-            <!-- Center Section -->
-            <div class="container mx-auto flex flex-col justify-center items-center text-center py-10 md:pt-20 md:pb-5">
-                <img src="HeadshotSquare.png" alt="Jacob Kulik Headshot" class="h-32 md:h-44 lg:h-56 rounded-full">
-                <div>
-                    <h1 class="text-4xl my-4">Jacob Kulik</h1>
-                    <p class="my-4">Data Science and Finance Major at Northeastern University</p>
-                </div>
-                <div class="icon-container flex items-center text-gray-500 fa-2x">
-                    <a target="_blank" href="https://github.com/kulikj" alt="GitHub" class="transform transition duration-500 hover:scale-125">
-                        <i class="fab fa-github hover:text-black mx-5"></i>
-                    </a>
-                    <a target="_blank" href="https://www.linkedin.com/in/jacob-kulik/" alt="LinkedIn" class="transform transition duration-500 hover:scale-125">
-                        <i class="fa-brands fa-linkedin hover:text-black mx-5"></i>
-                    </a>
-                    <a target="_blank" href="JacobKulikResume.pdf" alt="Resume" class="transform transition duration-500 hover:scale-125">
-                        <i class="fa-solid fa-file hover:text-black mx-5"></i>
-                    </a>
-                    <a target="_blank" href="mailto:kulik.j@northeastern.edu" alt="Email" class="transform transition duration-500 hover:scale-125">
-                        <i class="fa-solid fa-envelope hover:text-black mx-5"></i>
-                    </a>
-                  </div>
-            </div>
-
-            <!-- Line Separator -->
-            <div class="flex justify-center">
-                <hr class="w-1/2 border-1 border-black">
-            </div>
-
-            <!-- About Me Header -->
-            <!-- <div class="mx-auto w-10/12 md:w-2/3 text-center py-10 text-lg md:text-xl">
-                <h2 class="text-2xl md:text-2xl">About Me</h2> -->
-            <!-- Information -->
-            <div class="mx-auto w-10/12 md:w-2/3 text-left py-10 text-lg md:text-xl">
-                <p>I am a fourth year Data Science and Business Administration major with a concentration in Finance.
-                    My interests lie in the intersection of tech and business, through topics such as data visualization, supervised learning, and natural language processing. Here are some of my experiences:
-                    <!-- Here is my <a href="/JacobKulikResume.pdf" class="underline">resume</a>. --></p>
-                </br>
-                <div>
-                    <!-- Experiences -->
-                    <ul class="list-none flex flex-col items-start">
-                        <!-- ASC -->
-                        <li class="mb-2 flex">
-                            <i class="fa-solid fa-solid fa-infinity fa-2x flex-shrink-0 w-12"></i>
-                            <p class="ml-3 text-gray-700"><a target="_blank" href="https://www.arrowstreetcapital.com/" class="underline">Portfolio Management Co-op @ Arrowstreet Capital</a>
-                                <br/>
-                                <span class="text-sm">
-                                    Constructed fee schedule model with K-means clustering to classify broker tiers and explain routing behavior using Sklearn.
-                                    Implemented portfolio monitoring tool to track idiosyncratic risk contributors via Dask and SciPy for external-facing PMs.
-                                    Estimated stock loan fees using prime broker rate data to evaluate portfolio shorting costs with PySpark and Statsmodels.
-                                    Developed regression model to estimate trading fees using liquidity tags, achieving 96% R-squared with PySpark MLlib.
-                                    Optimized minimum portfolio cash levels by performing OLS regressions to predict overdraft probabilities using Statsmodels.
-
-
-                                </span>
-                            </p>
-                        </li>
-                        </br>
-
-                        <!-- HOLT -->
-                        <li class="mb-2 flex">
-                            <i class="fa-solid fa-chart-line fa-2x flex-shrink-0 w-12"></i>
-                            <p class="ml-3 text-gray-700"><a target="_blank" href="https://www.credit-suisse.com/microsites/holt/en/what-is-holt/holt-lens.html" class="underline">HOLT Portfolio & Quantitative Strategy Co-op @ Credit Suisse (UBS Group)</a>
-                                <br/>
-                                <span class="text-sm">
-                                    Launched portfolio analysis tool leveraging HOLT factor library to improve client prep workflow using Plotly Dash and SQL.
-                                    Engineered interactive dashboards to analyze HOLT and traditional quality alpha factors across stock baskets with Dash.
-                                    Enhanced ML model, achieving 91% accuracy in classifying management incentive plans across sectors with Sklearn.
-                                    Deployed chatbot to answer HOLT framework questions by conducting transfer learning on BERT model with HuggingFace.
-                                    Analyzed 25+ equity portfolios for institutional PMs, applying factor framework to construct opportunity and risk screens.
-                                </span>
-                            </p>
-                        </li>
-                        </br>
-
-						<!-- Chess.com -->
-                        <li class="mb-2 flex">
-                            <i class="fas fa-chess-pawn fa-2x flex-shrink-0 w-12"></i>
-                            <p class="ml-3 text-gray-700"><a target="_blank" href="/chess/" class="underline">Partner Streamer @ Chess.com</a>
-                                <br/>
-                                <span class="text-sm">
-                                    Developed educational channel focusing on Blitz and Bullet chess with over 4k followers, 900k total views across platforms.
-                                    Produced video content, consistently ranked in the top 50 English chess channels on Twitch for viewership and growth.
-                                    Launched own show as one of few college-aged streamers in partner program dedicated to growing chess’s popularity online.
-                                    Hosted Chess.com/tv programs for thousands of viewers, creating video content that is promoted on Chess.com site.
-                                    Organized dozens of viewer tournaments with over 1k total participants and provide interactive lessons on various openings.
-                                </span>
-                            </p>
-                        </li>
-                        </br>
-
-                        <!-- TAMID -->
-                        <li class="mb-2 flex">
-                            <i class="fa-brands fa-react fa-2x flex-shrink-0 w-12"></i>
-                            <p class="ml-3 text-gray-700"><a target="_blank" href="https://nutamid.org/tech-consulting/" class="underline">Director of Tech Consulting, Lead Developer @ TAMID Group</a>
-                                  <br/>
-                                  <span class="text-sm">
-                                    Drove team of 3 developers in the construction of codebase for Alia, a startup replacing traditional e-commerce pop-ups. 
-                                    Enhanced AI-generated lesson pop-ups using TypeScript and GPT-3.5 to improve conversion rate with customer education. 
-                                    Presented CEO with innovative prompt engineering and lesson creation code to enhance the Shopify merchant experience.
-                                 
-                                  </span>
-                              </p>
-                          </li>
-                        </br>
-
-						<!-- Disrupt -->
-                        <!-- <li class="mb-2 flex">
-                            <i class="fa-solid fa-dollar-sign fa-2x flex-shrink-0 w-12"></i>
-                            <p class="ml-3 text-gray-700"><a target="_blank" href="https://www.disruptneu.com/" class="underline">Vice President @ Disrupt - The FinTech Initiative</a>
-                                <br/>
-                                <span class="text-sm">
-                                    Led executive board of 22 students to execute 20+ speaker events and develop financial literacy mobile application.
-                                    Designed and taught 3-part Python workshop series covering Pandas library and Yahoo! Finance API for 200+ total students.
-                                    Restructured curriculum for 8-week FinTech venture-building program to funnel directly into venture accelerator IDEA.
-                                </span>
-                            </p>
-                        </li>
-                        </br> -->
-
-						<!-- DS2000 TA -->
-                        <!-- <li class="mb-2 flex">
-                          <i class="fa-brands fa-python fa-2x flex-shrink-0 w-12"></i>
-                          <p class="ml-3 text-gray-700"><a target="_blank" href="https://course.ccs.neu.edu/ds2000/" class="underline">Data Science Teaching Assistant @ Khoury College</a>
-                                <br/>
-                                <span class="text-sm">
-                                    Facilitated discussion through weekly office hours and Piazza threads for 500 students in DS2000: Programming with Data.
-                                    Instructed 50 students in 2 CS practicum sections, grading and providing individualized feedback on homework and projects.
-                                    Collaborated with professors to develop visualization projects and quizzes covering introductory programming concepts.
-                                </span>
-                          </p>
-                        </li>
-                        </br> -->
-						
-						<!-- DATA -->
-						<!-- <li class="mb-2 flex">
-							<i class="fa-solid fa-mobile-screen-button fa-2x flex-shrink-0 w-12"></i>
-							<p class="ml-3 text-gray-700"><a target="_blank" href="https://damore-mckim.northeastern.edu/data-initiative/" class="underline">Data Analytics Consultant @ DATA Research Lab</a>
-								  <br/>
-								  <span class="text-sm">
-									Managed client relationships in team of 4 lab students for startup Hub App, a global event-planning mobile app.
-									Analyzed behavior of users’ final action in app, utilizing Pandas DataFrames in Python with live analytics MySQL databases.
-									Presented CTO with approach for UI/UX designs centralized around growth within the college student market.
-								  </span>
-							  </p>
-						  </li>
-                        </br> -->
-                      </ul>
-                </div>
-            </div>
-
-            <!-- Line Separator -->
-            <div class="hidden md:flex justify-center">
-                <hr class="w-1/2 border-1 border-black">
-            </div>
-
-            <!-- Images -->
-            <div class="hidden md:flex flex-col md:flex-row items-center justify-center my-10">
-                <div class="w-7/12 md:w-1/4">
-                    <img src="/pictures/disrupt.jpg" alt="Image 1">
-                    <figcaption class="italic text-gray-500 text-sm text-center">Teaching a Python in Finance Workshop</figcaption>
-                  </div>
-                  <div class="w-7/12 md:w-1/4">
-                    <img src="/pictures/kasparov.jpg" alt="Image 2">
-                    <figcaption class="italic text-gray-500 text-sm text-center">Meeting former Chess World Champion Garry Kasparov</figcaption>
-                  </div>
-                  <div class="w-7/12 md:w-1/4">
-                    <img src="/pictures/dmsb.jpg" alt="Image 3">
-                    <figcaption class="italic text-gray-500 text-sm text-center">DMSB's 100th Anniversary Event</figcaption>
-                  </div>
-            </div>
-
-            <!-- Top of Page Button -->
-            <a href="#top" class="fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 ease-in-out py-1 px-2 sm:bottom-2 sm:right-2">
-				<i class="fa-solid fa-arrow-up text-sm"></i>
-			</a>
-
-            <!-- Footer -->
-            <div>
-                <div class="bg-gray-100">
-                    <div class="md:mx-32 sm:mx-16 py-6 flex justify-between items-center text-gray-400 md:text-lg text-base">
-                      <p class="ml-4">Jacob Kulik &copy; 2023</p>
-                      <ul class="flex items-center">
-                        <li class="md:px-4 px-2">
-                          <a href="" class="text-black hover:text-black">Home</a>
-                        </li>
-                        <li class="md:px-4 px-2">
-                          <a href="/projects/" class="hover:text-black">Projects</a>
-                        </li>
-						<li class="md:px-4 px-2">
-							<a href="/chess/" class="hover:text-black">Chess</a>
-						  </li>
-                        <li class="md:px-4 px-2">
-                          <a target="_blank" href="JacobKulikResume.pdf" class="hover:text-black">CV</a>
-                        </li>
-                      </ul>
+            <nav class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between h-16">
+                        <div class="flex items-center ml-4">
+                            <a href="/" class="text-xl font-semibold text-gray-900">Jacob Kulik</a>
+                        </div>
+                        <!-- Desktop Navigation -->
+                        <div class="hidden md:flex items-center space-x-4">
+                            <a href="/" class="nav-link text-gray-600">Home</a>
+                            <a href="/projects/" class="nav-link text-gray-600">Projects</a>
+                            <a href="/chess/" class="nav-link text-gray-600">Chess</a>
+                            <a href="/dj/" class="nav-link text-gray-600">DJ</a>
+                            <a target="_blank" href="JacobKulikResume.pdf" class="nav-link text-gray-600">CV</a>
+                        </div>
+                        <!-- Mobile Menu Button -->
+                        <div class="md:hidden flex items-center">
+                            <button type="button" class="text-gray-600 hover:text-gray-900 focus:outline-none" onclick="toggleMobileMenu()">
+                                <div class="hamburger">
+                                    <span class="hamburger-line"></span>
+                                    <span class="hamburger-line"></span>
+                                    <span class="hamburger-line"></span>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <!-- Mobile Menu -->
+                <div class="mobile-menu md:hidden fixed top-16 right-0 w-48 bg-white shadow-lg rounded-bl-lg">
+                    <div class="flex flex-col">
+                        <div class="flex items-center p-4 border-b">
+                            <span class="text-lg font-semibold">Contents</span>
+                        </div>
+                        <div class="flex flex-col p-4 space-y-4">
+                            <a href="/" class="mobile-menu-item nav-link text-gray-600 text-lg">Home</a>
+                            <a href="/projects/" class="mobile-menu-item nav-link text-gray-600 text-lg">Projects</a>
+                            <a href="/chess/" class="mobile-menu-item nav-link text-gray-600 text-lg">Chess</a>
+                            <a href="/dj/" class="mobile-menu-item nav-link text-gray-600 text-lg">DJ</a>
+                            <a target="_blank" href="JacobKulikResume.pdf" class="mobile-menu-item nav-link text-gray-600 text-lg">CV</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
 
+            <!-- Main Content -->
+            <main class="flex-grow">
+                <!-- Hero Section -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+                    <div class="text-center">
+                        <img src="HeadshotSquare.png" alt="Jacob Kulik Headshot" class="h-32 md:h-44 lg:h-56 rounded-full mx-auto mb-6">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">Jacob Kulik</h1>
+                        <p class="text-xl text-gray-600 mb-6">Data Science and Finance Major at Northeastern University</p>
+                        <div class="flex justify-center space-x-6 text-gray-500">
+                            <a target="_blank" href="https://github.com/kulikj" class="hover:text-gray-900 transition-colors">
+                                <i class="fab fa-github text-2xl"></i>
+                            </a>
+                            <a target="_blank" href="https://www.linkedin.com/in/jacob-kulik/" class="hover:text-gray-900 transition-colors">
+                                <i class="fa-brands fa-linkedin text-2xl"></i>
+                            </a>
+                            <a target="_blank" href="JacobKulikResume.pdf" class="hover:text-gray-900 transition-colors">
+                                <i class="fa-solid fa-file text-2xl"></i>
+                            </a>
+                            <a target="_blank" href="mailto:kulik.j@northeastern.edu" class="hover:text-gray-900 transition-colors">
+                                <i class="fa-solid fa-envelope text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Section -->
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                    <div class="bg-white rounded-lg shadow-sm p-8">
+                        <h2 class="text-2xl font-semibold mb-6">About Me</h2>
+                        <p class="text-gray-700 mb-8">I am a fourth year Data Science and Business Administration major with a concentration in Finance.
+                            My interests lie in the intersection of tech and business, through topics such as data visualization, supervised learning, and natural language processing.</p>
+                        
+                        <div class="space-y-8">
+                            <!-- ASC Experience -->
+                            <div class="experience-item">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 text-center">
+                                        <i class="fa-solid fa-infinity text-2xl text-gray-600"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h3 class="font-semibold">
+                                            <a target="_blank" href="https://www.arrowstreetcapital.com/" class="text-gray-900 hover:text-gray-700">Portfolio Management Co-op @ Arrowstreet Capital</a>
+                                        </h3>
+                                        <p class="text-sm text-gray-600 mt-2">
+                                            Constructed fee schedule model with K-means clustering to classify broker tiers and explain routing behavior using Sklearn.
+                                            Implemented portfolio monitoring tool to track idiosyncratic risk contributors via Dask and SciPy for external-facing PMs.
+                                            Estimated stock loan fees using prime broker rate data to evaluate portfolio shorting costs with PySpark and Statsmodels.
+                                            Developed regression model to estimate trading fees using liquidity tags, achieving 96% R-squared with PySpark MLlib.
+                                            Optimized minimum portfolio cash levels by performing OLS regressions to predict overdraft probabilities using Statsmodels.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- HOLT Experience -->
+                            <div class="experience-item">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 text-center">
+                                        <i class="fa-solid fa-chart-line text-2xl text-gray-600"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h3 class="font-semibold">
+                                            <a target="_blank" href="https://www.credit-suisse.com/microsites/holt/en/what-is-holt/holt-lens.html" class="text-gray-900 hover:text-gray-700">HOLT Portfolio & Quantitative Strategy Co-op @ Credit Suisse (UBS Group)</a>
+                                        </h3>
+                                        <p class="text-sm text-gray-600 mt-2">
+                                            Launched portfolio analysis tool leveraging HOLT factor library to improve client prep workflow using Plotly Dash and SQL.
+                                            Engineered interactive dashboards to analyze HOLT and traditional quality alpha factors across stock baskets with Dash.
+                                            Enhanced ML model, achieving 91% accuracy in classifying management incentive plans across sectors with Sklearn.
+                                            Deployed chatbot to answer HOLT framework questions by conducting transfer learning on BERT model with HuggingFace.
+                                            Analyzed 25+ equity portfolios for institutional PMs, applying factor framework to construct opportunity and risk screens.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Chess.com Experience -->
+                            <div class="experience-item">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 text-center">
+                                        <i class="fas fa-chess-pawn text-2xl text-gray-600"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h3 class="font-semibold">
+                                            <a target="_blank" href="/chess/" class="text-gray-900 hover:text-gray-700">Partner Streamer @ Chess.com</a>
+                                        </h3>
+                                        <p class="text-sm text-gray-600 mt-2">
+                                            Developed educational channel focusing on Blitz and Bullet chess with over 4k followers, 900k total views across platforms.
+                                            Produced video content, consistently ranked in the top 50 English chess channels on Twitch for viewership and growth.
+                                            Launched own show as one of few college-aged streamers in partner program dedicated to growing chess's popularity online.
+                                            Hosted Chess.com/tv programs for thousands of viewers, creating video content that is promoted on Chess.com site.
+                                            Organized dozens of viewer tournaments with over 1k total participants and provide interactive lessons on various openings.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TAMID Experience -->
+                            <div class="experience-item">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 text-center">
+                                        <i class="fa-brands fa-react text-2xl text-gray-600"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h3 class="font-semibold">
+                                            <a target="_blank" href="https://nutamid.org/tech-consulting/" class="text-gray-900 hover:text-gray-700">Director of Tech Consulting, Lead Developer @ TAMID Group</a>
+                                        </h3>
+                                        <p class="text-sm text-gray-600 mt-2">
+                                            Drove team of 3 developers in the construction of codebase for Alia, a startup replacing traditional e-commerce pop-ups. 
+                                            Enhanced AI-generated lesson pop-ups using TypeScript and GPT-3.5 to improve conversion rate with customer education. 
+                                            Presented CEO with innovative prompt engineering and lesson creation code to enhance the Shopify merchant experience.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Section -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                            <img src="/pictures/disrupt.jpg" alt="Teaching a Python in Finance Workshop" class="w-full h-48 object-cover">
+                            <p class="p-4 text-sm text-gray-600 italic">Teaching a Python in Finance Workshop</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                            <img src="/pictures/kasparov.jpg" alt="Meeting former Chess World Champion Garry Kasparov" class="w-full h-48 object-cover">
+                            <p class="p-4 text-sm text-gray-600 italic">Meeting former Chess World Champion Garry Kasparov</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                            <img src="/pictures/dmsb.jpg" alt="DMSB's 100th Anniversary Event" class="w-full h-48 object-cover">
+                            <p class="p-4 text-sm text-gray-600 italic">DMSB's 100th Anniversary Event</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="bg-white border-t">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                    <div class="flex flex-row justify-between items-center">
+                        <p class="text-gray-600">J.K. &copy; 2025</p>
+                        <div class="flex space-x-4">
+                            <a href="/" class="nav-link text-gray-600">Home</a>
+                            <a href="/projects/" class="nav-link text-gray-600">Projects</a>
+                            <a href="/chess/" class="nav-link text-gray-600">Chess</a>
+                            <a href="/dj/" class="nav-link text-gray-600">DJ</a>
+                            <a target="_blank" href="/JacobKulikResume.pdf" class="nav-link text-gray-600">CV</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
+
+        <!-- Back to Top Button -->
+        <a href="#top" class="fixed bottom-4 right-4 bg-gray-800 text-white rounded-full p-3 transition duration-300 ease-in-out hover:bg-gray-700">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+
+        <script>
+            function toggleMobileMenu() {
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const hamburger = document.querySelector('.hamburger');
+                mobileMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            }
+        </script>
         <script src="/js/main.js"></script>
     </body>
-
 </html>

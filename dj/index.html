@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Jacob Kulik - DJ</title>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+                color: #1a1a1a;
+                padding-top: 4rem;
+            }
+            .nav-link {
+                transition: color 0.2s ease;
+            }
+            .nav-link:hover {
+                color: #1a1a1a;
+            }
+            .mobile-menu {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            .mobile-menu.active {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            .mobile-menu-item {
+                transition: transform 0.2s ease, opacity 0.2s ease;
+                transform: translateX(20px);
+                opacity: 0;
+            }
+            .mobile-menu.active .mobile-menu-item {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            .mobile-menu.active .mobile-menu-item:nth-child(1) { transition-delay: 0.1s; }
+            .mobile-menu.active .mobile-menu-item:nth-child(2) { transition-delay: 0.2s; }
+            .mobile-menu.active .mobile-menu-item:nth-child(3) { transition-delay: 0.3s; }
+            .mobile-menu.active .mobile-menu-item:nth-child(4) { transition-delay: 0.4s; }
+            .mobile-menu.active .mobile-menu-item:nth-child(5) { transition-delay: 0.5s; }
+            .hamburger {
+                width: 24px;
+                height: 24px;
+                position: relative;
+                margin-right: 1rem;
+            }
+            .hamburger-line {
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: currentColor;
+                transition: all 0.3s ease;
+            }
+            .hamburger-line:nth-child(1) {
+                top: 6px;
+            }
+            .hamburger-line:nth-child(2) {
+                top: 12px;
+            }
+            .hamburger-line:nth-child(3) {
+                top: 18px;
+            }
+            .hamburger.active .hamburger-line:nth-child(1) {
+                transform: translateY(6px) rotate(45deg);
+            }
+            .hamburger.active .hamburger-line:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            .hamburger.active .hamburger-line:nth-child(3) {
+                transform: translateY(-6px) rotate(-45deg);
+            }
+            .gallery-image {
+                transition: transform 0.3s ease;
+            }
+            .gallery-image:hover {
+                transform: scale(1.05);
+            }
+            .slideshow-container {
+                position: relative;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            .slide {
+                display: none;
+                width: 100%;
+                height: 500px;
+                object-fit: cover;
+                border-radius: 0.5rem;
+            }
+            .slide.active {
+                display: block;
+                animation: fadeIn 0.5s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            .slideshow-controls {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 10px;
+            }
+            .slideshow-controls button {
+                background: rgba(255, 255, 255, 0.8);
+                border: none;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background-color 0.3s ease;
+            }
+            .slideshow-controls button:hover {
+                background: rgba(255, 255, 255, 1);
+            }
+        </style>
+	</head>
+    <body class="bg-gray-50">
+        <div class="min-h-screen flex flex-col">
+            <!-- Top Navigation Bar -->
+            <nav class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between h-16">
+                        <div class="flex items-center ml-4">
+                            <a href="/" class="text-xl font-semibold text-gray-900">Jacob Kulik</a>
+                        </div>
+                        <!-- Desktop Navigation -->
+                        <div class="hidden md:flex items-center space-x-4">
+                            <a href="/" class="nav-link text-gray-600">Home</a>
+                            <a href="/projects/" class="nav-link text-gray-600">Projects</a>
+                            <a href="/chess/" class="nav-link text-gray-600">Chess</a>
+                            <a href="/dj/" class="nav-link text-gray-600">DJ</a>
+                            <a target="_blank" href="/JacobKulikResume.pdf" class="nav-link text-gray-600">CV</a>
+                        </div>
+                        <!-- Mobile Menu Button -->
+                        <div class="md:hidden flex items-center">
+                            <button type="button" class="text-gray-600 hover:text-gray-900 focus:outline-none" onclick="toggleMobileMenu()">
+                                <div class="hamburger">
+                                    <span class="hamburger-line"></span>
+                                    <span class="hamburger-line"></span>
+                                    <span class="hamburger-line"></span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Menu -->
+                <div class="mobile-menu md:hidden fixed top-16 right-0 w-48 bg-white shadow-lg rounded-bl-lg">
+                    <div class="flex flex-col">
+                        <div class="flex items-center p-4 border-b">
+                            <span class="text-lg font-semibold">Contents</span>
+                        </div>
+                        <div class="flex flex-col p-4 space-y-4">
+                            <a href="/" class="mobile-menu-item nav-link text-gray-600 text-lg">Home</a>
+                            <a href="/projects/" class="mobile-menu-item nav-link text-gray-600 text-lg">Projects</a>
+                            <a href="/chess/" class="mobile-menu-item nav-link text-gray-600 text-lg">Chess</a>
+                            <a href="/dj/" class="mobile-menu-item nav-link text-gray-600 text-lg">DJ</a>
+                            <a target="_blank" href="/JacobKulikResume.pdf" class="mobile-menu-item nav-link text-gray-600 text-lg">CV</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="flex-grow">
+                <!-- Header Section -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <div class="text-center">
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4">DJ</h1>
+                        <p class="text-xl text-gray-600">House and Open-Format Mixing</p>
+                    </div>
+                </div>
+
+                <!-- Logo Image -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <div class="flex justify-center">
+                        <img src="/pictures/juulik.png" alt="Juulik Logo" class="max-w-xs md:max-w-sm">
+                    </div>
+                </div>
+
+                <!-- DJ Content Section -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8">
+                        <div class="prose max-w-none">
+                            <p class="text-gray-700">
+                                I started DJing in November of 2023 and have been hooked ever since. Since then, I've played over 50 sets across more than 20 venues throughout Boston, from restaurants and bars to nightclubs. I mainly spin house music, especially disco or tech house, but I'm versatile in playing open format as well. I've performed on a wide range of club-standard gear. You can find me DJing under the name 'Juulik'.
+                            </p>
+                            <p class="text-gray-700 mt-6">
+                                <span class="font-semibold">Notable Venues:</span><br>
+                                The Grand, Boston Boat Cruise Summer Series, Loco Fenway (Residency), Scorpion Bar, BSMNT Boston, The Broadway, The Harp, ICON Nightclub
+                            </p>
+                            <p class="text-gray-700 mt-6">
+                                <span class="font-semibold">Opening / Supporting Acts For:</span><br>
+                                Francis Mercier, Ian Asher, R3WIRE, Goshfather, Mashbit, DJ Costa, Breakbones
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://soundcloud.com/juulik" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
+                            <i class="fab fa-soundcloud text-3xl"></i>
+                        </a>
+                        <a href="https://open.spotify.com/user/jakul238" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
+                            <i class="fab fa-spotify text-3xl"></i>
+                        </a>
+                        <a href="mailto:dj.juulik@gmail.com" class="text-gray-600 hover:text-gray-900 transition-colors">
+                            <i class="fas fa-envelope text-3xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Photo Slideshow -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-12">
+                    <div class="slideshow-container">
+                        <img src="/pictures/dj/dj1.jpg" alt="08/15/2024 @ The Grand" class="slide active">
+                        <img src="/pictures/dj/dj2.jpg" alt="01/17/2025 @ BSMNT Boston" class="slide">
+                        <img src="/pictures/dj/dj3.jpg" alt="01/17/2025 @ BSMNT Boston" class="slide">
+                        <img src="/pictures/dj/dj4.jpg" alt="01/24/2025 @ Loco Fenway" class="slide">
+                        <img src="/pictures/dj/dj5.jpg" alt="02/07/2025 @ BSMNT Boston" class="slide">
+                        <img src="/pictures/dj/dj6.jpg" alt="08/15/2024 @ The Grand" class="slide">
+                        <img src="/pictures/dj/dj7.jpg" alt="03/21/2025 @ BSMNT Boston" class="slide">
+                        <img src="/pictures/dj/dj8.jpg" alt="10/05/2024 @ Loco Fenway" class="slide">
+                        <img src="/pictures/dj/dj9.jpg" alt="08/15/2024 @ The Grand" class="slide">
+                        <div class="slideshow-controls">
+                            <button onclick="prevSlide()">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button onclick="nextSlide()">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="bg-white border-t mt-auto">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                    <div class="flex flex-row justify-between items-center">
+                        <p class="text-gray-600">J.K. &copy; 2025</p>
+                        <div class="flex space-x-4">
+                            <a href="/" class="nav-link text-gray-600">Home</a>
+                            <a href="/projects/" class="nav-link text-gray-600">Projects</a>
+                            <a href="/chess/" class="nav-link text-gray-600">Chess</a>
+                            <a href="/dj/" class="nav-link text-gray-600">DJ</a>
+                            <a target="_blank" href="/JacobKulikResume.pdf" class="nav-link text-gray-600">CV</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Back to Top Button -->
+        <a href="#top" class="fixed bottom-4 right-4 bg-gray-800 text-white rounded-full p-3 transition duration-300 ease-in-out hover:bg-gray-700">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+
+        <script>
+            function toggleMobileMenu() {
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const hamburger = document.querySelector('.hamburger');
+                mobileMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            }
+
+            // Slideshow functionality
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentSlide = (index + totalSlides) % totalSlides;
+                slides[currentSlide].classList.add('active');
+            }
+
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+
+            // Auto-advance slideshow every 5 seconds
+            setInterval(nextSlide, 5000);
+        </script>
+        <script src="/js/main.js"></script>
+    </body>
+</html> 
