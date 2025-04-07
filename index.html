@@ -98,7 +98,7 @@
                             <a href="/projects/" class="nav-link text-gray-600">Projects</a>
                             <a href="/chess/" class="nav-link text-gray-600">Chess</a>
                             <a href="/dj/" class="nav-link text-gray-600">DJ</a>
-                            <a target="_blank" href="JacobKulikResume.pdf" class="nav-link text-gray-600">CV</a>
+                            <a target="_blank" href="JacobKulikResume.pdf" class="nav-link text-gray-600">Resume</a>
                         </div>
                         <!-- Mobile Menu Button -->
                         <div class="md:hidden flex items-center">
@@ -123,7 +123,7 @@
                             <a href="/projects/" class="mobile-menu-item nav-link text-gray-600 text-lg">Projects</a>
                             <a href="/chess/" class="mobile-menu-item nav-link text-gray-600 text-lg">Chess</a>
                             <a href="/dj/" class="mobile-menu-item nav-link text-gray-600 text-lg">DJ</a>
-                            <a target="_blank" href="JacobKulikResume.pdf" class="mobile-menu-item nav-link text-gray-600 text-lg">CV</a>
+                            <a target="_blank" href="JacobKulikResume.pdf" class="mobile-menu-item nav-link text-gray-600 text-lg">Resume</a>
                         </div>
                     </div>
                 </div>
@@ -159,26 +159,76 @@
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-semibold mb-6">About Me</h2>
                         <p class="text-gray-700 mb-8">I am a fourth year Data Science and Business Administration major with a concentration in Finance.
-                            My interests lie in the intersection of tech and business, through topics such as data visualization, supervised learning, and natural language processing.</p>
-                        
+                            My interests lie in the intersection of tech and business, through areas such as data visualization, supervised learning, and natural language processing.</p>
+
+                        <!--  <i class="fa-solid fa-infinity text-2xl text-gray-600"></i>  -->
                         <div class="space-y-8">
+                            <!-- Lord Abbett Experience -->
+                            <div class="experience-item">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 text-center">
+                                        <i class="fa-brands fa-python text-3xl text-gray-600 mt-3"></i>
+                                    </div>                                    
+                                    <div class="ml-4 flex-1">
+                                        <div class="flex justify-between">
+                                            <!-- Left side: Position -->
+                                            <div>
+                                                <h3 class="font-semibold text-gray-900">
+                                                    <a target="_blank" href="https://www.lordabbett.com/">Incoming Investment Risk Associate</a>
+                                                </h3>
+                                            </div>
+                                            <!-- Right side: Location -->
+                                            <div class="text-right text-gray-600 text-sm">
+                                                Jersey City, NJ
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <!-- Left side: Company -->
+                                            <div>
+                                                <p class="text-gray-600">
+                                                    Lord, Abbett & Co LLC
+                                                </p>
+                                            </div>
+                                            <!-- Right side: Dates -->
+                                            <div class="text-right text-gray-500 text-sm italic">
+                                                Jun 2025 – Present
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- ASC Experience -->
                             <div class="experience-item">
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0 w-12 text-center">
-                                        <i class="fa-solid fa-infinity text-2xl text-gray-600"></i>
+                                        <i class="fa-solid fa-plus-minus text-3xl text-gray-600 mt-3"></i>
                                     </div>
-                                    <div class="ml-4">
-                                        <h3 class="font-semibold">
-                                            <a target="_blank" href="https://www.arrowstreetcapital.com/" class="text-gray-900 hover:text-gray-700">Portfolio Management Co-op @ Arrowstreet Capital</a>
-                                        </h3>
-                                        <p class="text-sm text-gray-600 mt-2">
-                                            Constructed fee schedule model with K-means clustering to classify broker tiers and explain routing behavior using Sklearn.
-                                            Implemented portfolio monitoring tool to track idiosyncratic risk contributors via Dask and SciPy for external-facing PMs.
-                                            Estimated stock loan fees using prime broker rate data to evaluate portfolio shorting costs with PySpark and Statsmodels.
-                                            Developed regression model to estimate trading fees using liquidity tags, achieving 96% R-squared with PySpark MLlib.
-                                            Optimized minimum portfolio cash levels by performing OLS regressions to predict overdraft probabilities using Statsmodels.
-                                        </p>
+                                    <div class="ml-4 flex-1">
+                                        <div class="flex justify-between">
+                                            <!-- Left side: Position -->
+                                            <div>
+                                                <h3 class="font-semibold text-gray-900">
+                                                    <a target="_blank" href="https://www.arrowstreetcapital.com/">Portfolio Management Co-op</a>
+                                                </h3>
+                                            </div>
+                                            <!-- Right side: Location -->
+                                            <div class="text-right text-gray-600 text-sm">
+                                                Boston, MA
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <!-- Left side: Company -->
+                                            <div>
+                                                <p class="text-gray-600">
+                                                    Arrowstreet Capital, LP
+                                                </p>
+                                            </div>
+                                            <!-- Right side: Dates -->
+                                            <div class="text-right text-gray-500 text-sm italic">
+                                                Jul 2024 – Dec 2024
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -187,19 +237,68 @@
                             <div class="experience-item">
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0 w-12 text-center">
-                                        <i class="fa-solid fa-chart-line text-2xl text-gray-600"></i>
+                                        <i class="fa-solid fa-chart-line text-3xl text-gray-600 mt-3"></i>
                                     </div>
-                                    <div class="ml-4">
-                                        <h3 class="font-semibold">
-                                            <a target="_blank" href="https://www.credit-suisse.com/microsites/holt/en/what-is-holt/holt-lens.html" class="text-gray-900 hover:text-gray-700">HOLT Portfolio & Quantitative Strategy Co-op @ Credit Suisse (UBS Group)</a>
-                                        </h3>
-                                        <p class="text-sm text-gray-600 mt-2">
-                                            Launched portfolio analysis tool leveraging HOLT factor library to improve client prep workflow using Plotly Dash and SQL.
-                                            Engineered interactive dashboards to analyze HOLT and traditional quality alpha factors across stock baskets with Dash.
-                                            Enhanced ML model, achieving 91% accuracy in classifying management incentive plans across sectors with Sklearn.
-                                            Deployed chatbot to answer HOLT framework questions by conducting transfer learning on BERT model with HuggingFace.
-                                            Analyzed 25+ equity portfolios for institutional PMs, applying factor framework to construct opportunity and risk screens.
-                                        </p>
+                                    <div class="ml-4 flex-1">
+                                        <div class="flex justify-between">
+                                            <!-- Left side: Position -->
+                                            <div>
+                                                <h3 class="font-semibold text-gray-900">
+                                                    <a target="_blank" href="https://www.ubs.com/global/en/investment-bank/holt.html">HOLT Portfolio & Quantitative Strategy Co-op</a>
+                                                </h3>
+                                            </div>
+                                            <!-- Right side: Location -->
+                                            <div class="text-right text-gray-600 text-sm">
+                                                New York, NY
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <!-- Left side: Company -->
+                                            <div>
+                                                <p class="text-gray-600">
+                                                    Credit Suisse (UBS Group)
+                                                </p>
+                                            </div>
+                                            <!-- Right side: Dates -->
+                                            <div class="text-right text-gray-500 text-sm italic">
+                                                Jul 2023 – Dec 2023
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Khoury College Experience -->
+                            <div class="experience-item">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 text-center">
+                                        <i class="fa-solid fa-chalkboard text-3xl text-gray-600 mt-3"></i>
+                                    </div>
+                                    <div class="ml-4 flex-1">
+                                        <div class="flex justify-between">
+                                            <!-- Left side: Position -->
+                                            <div>
+                                                <h3 class="font-semibold text-gray-900">
+                                                    <a target="_blank" href="https://www.khoury.northeastern.edu/programs/data-science-bs/">Data Science Teaching Assistant</a>
+                                                </h3>
+                                            </div>
+                                            <!-- Right side: Location -->
+                                            <div class="text-right text-gray-600 text-sm">
+                                                Boston, MA
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <!-- Left side: Company -->
+                                            <div>
+                                                <p class="text-gray-600">
+                                                    Khoury College of Computer Sciences
+                                                </p>
+                                            </div>
+                                            <!-- Right side: Dates -->
+                                            <div class="text-right text-gray-500 text-sm italic">
+                                                Dec 2021 – Apr 2025
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -208,41 +307,74 @@
                             <div class="experience-item">
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0 w-12 text-center">
-                                        <i class="fas fa-chess-pawn text-2xl text-gray-600"></i>
+                                        <i class="fas fa-chess-pawn text-3xl text-gray-600 mt-3"></i>
                                     </div>
-                                    <div class="ml-4">
-                                        <h3 class="font-semibold">
-                                            <a target="_blank" href="/chess/" class="text-gray-900 hover:text-gray-700">Partner Streamer @ Chess.com</a>
-                                        </h3>
-                                        <p class="text-sm text-gray-600 mt-2">
-                                            Developed educational channel focusing on Blitz and Bullet chess with over 4k followers, 900k total views across platforms.
-                                            Produced video content, consistently ranked in the top 50 English chess channels on Twitch for viewership and growth.
-                                            Launched own show as one of few college-aged streamers in partner program dedicated to growing chess's popularity online.
-                                            Hosted Chess.com/tv programs for thousands of viewers, creating video content that is promoted on Chess.com site.
-                                            Organized dozens of viewer tournaments with over 1k total participants and provide interactive lessons on various openings.
-                                        </p>
+                                    <div class="ml-4 flex-1">
+                                        <div class="flex justify-between">
+                                            <!-- Left side: Position -->
+                                            <div>
+                                                <h3 class="font-semibold text-gray-900">
+                                                    <a target="_blank" href="/chess/">Partner Streamer</a>
+                                                </h3>
+                                                
+                                            </div>
+                                            <!-- Right side: Location -->
+                                            <div class="text-right text-gray-600 text-sm">
+                                                Remote
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <!-- Left side: Company -->
+                                            <div>
+                                                <p class="text-gray-600">
+                                                    Chess.com
+                                                </p>
+                                            </div>
+                                            <!-- Right side: Dates -->
+                                            <div class="text-right text-gray-500 text-sm italic">
+                                                Nov 2020 – Oct 2023
+                                            </div>
+                                        </div>  
                                     </div>
                                 </div>
                             </div>
+
 
                             <!-- TAMID Experience -->
                             <div class="experience-item">
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0 w-12 text-center">
-                                        <i class="fa-brands fa-react text-2xl text-gray-600"></i>
+                                        <i class="fa-brands fa-react text-3xl text-gray-600 mt-3"></i>
                                     </div>
-                                    <div class="ml-4">
-                                        <h3 class="font-semibold">
-                                            <a target="_blank" href="https://nutamid.org/tech-consulting/" class="text-gray-900 hover:text-gray-700">Director of Tech Consulting, Lead Developer @ TAMID Group</a>
-                                        </h3>
-                                        <p class="text-sm text-gray-600 mt-2">
-                                            Drove team of 3 developers in the construction of codebase for Alia, a startup replacing traditional e-commerce pop-ups. 
-                                            Enhanced AI-generated lesson pop-ups using TypeScript and GPT-3.5 to improve conversion rate with customer education. 
-                                            Presented CEO with innovative prompt engineering and lesson creation code to enhance the Shopify merchant experience.
-                                        </p>
+                                    <div class="ml-4 flex-1">
+                                        <div class="flex justify-between">
+                                            <!-- Left side: Position -->
+                                            <div>
+                                                <h3 class="font-semibold text-gray-900">
+                                                    <a target="_blank" href="https://nutamid.org/tech-consulting/">Director of Tech Consulting, Lead Developer</a>
+                                                </h3>
+                                            </div>
+                                            <!-- Right side: Location -->
+                                            <div class="text-right text-gray-600 text-sm">
+                                                Boston, MA
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <!-- Left side: Company -->
+                                            <div>
+                                                <p class="text-gray-600">
+                                                    TAMID Group at Northeastern University
+                                                </p>
+                                            </div>
+                                            <!-- Right side: Dates -->
+                                            <div class="text-right text-gray-500 text-sm italic">
+                                                Sep 2022 – Dec 2024
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -276,7 +408,7 @@
                             <a href="/projects/" class="nav-link text-gray-600">Projects</a>
                             <a href="/chess/" class="nav-link text-gray-600">Chess</a>
                             <a href="/dj/" class="nav-link text-gray-600">DJ</a>
-                            <a target="_blank" href="/JacobKulikResume.pdf" class="nav-link text-gray-600">CV</a>
+                            <a target="_blank" href="/JacobKulikResume.pdf" class="nav-link text-gray-600">Resume</a>
                         </div>
                     </div>
                 </div>
