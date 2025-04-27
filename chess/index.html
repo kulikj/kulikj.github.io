@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Jacob Kulik - Chess</title>
+		<title>Jacob Kulik</title>
 		<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
@@ -90,7 +90,7 @@
                         <div class="hidden md:flex items-center space-x-4">
                             <a href="/" class="nav-link text-gray-600">Home</a>
                             <a href="/projects/" class="nav-link text-gray-600">Projects</a>
-                            <a href="/chess/" class="nav-link text-gray-600">Chess</a>
+                            <a href="/chess/" class="nav-link text-gray-900 font-medium">Chess</a>
                             <a href="/dj/" class="nav-link text-gray-600">DJ</a>
                             <a target="_blank" href="/JacobKulikResume.pdf" class="nav-link text-gray-600">Resume</a>
                         </div>
@@ -115,7 +115,7 @@
                         <div class="flex flex-col p-4 space-y-4">
                             <a href="/" class="mobile-menu-item nav-link text-gray-600 text-lg">Home</a>
                             <a href="/projects/" class="mobile-menu-item nav-link text-gray-600 text-lg">Projects</a>
-                            <a href="/chess/" class="mobile-menu-item nav-link text-gray-600 text-lg">Chess</a>
+                            <a href="/chess/" class="mobile-menu-item nav-link text-gray-900 font-medium text-lg">Chess</a>
                             <a href="/dj/" class="mobile-menu-item nav-link text-gray-600 text-lg">DJ</a>
                             <a target="_blank" href="/JacobKulikResume.pdf" class="mobile-menu-item nav-link text-gray-600 text-lg">Resume</a>
                         </div>
@@ -219,7 +219,7 @@
                         <div class="flex space-x-4">
                             <a href="/" class="nav-link text-gray-600">Home</a>
                             <a href="/projects/" class="nav-link text-gray-600">Projects</a>
-                            <a href="/chess/" class="nav-link text-gray-600">Chess</a>
+                            <a href="/chess/" class="nav-link text-gray-900 font-medium">Chess</a>
                             <a href="/dj/" class="nav-link text-gray-600">DJ</a>
                             <a target="_blank" href="/JacobKulikResume.pdf" class="nav-link text-gray-600">Resume</a>
                         </div>
@@ -229,7 +229,7 @@
         </div>
 
         <!-- Back to Top Button -->
-        <a href="#top" class="fixed bottom-4 right-4 bg-gray-800 text-white rounded-full p-3 transition duration-300 ease-in-out hover:bg-gray-700">
+        <a href="#top" class="fixed bottom-4 right-4 bg-gray-800 text-white rounded-full p-3 transition duration-300 ease-in-out hover:bg-gray-700 opacity-0 pointer-events-none" id="backToTop">
             <i class="fa-solid fa-arrow-up"></i>
         </a>
 
@@ -240,6 +240,19 @@
                 mobileMenu.classList.toggle('active');
                 hamburger.classList.toggle('active');
             }
+
+            // Back to top button functionality
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
+                    backToTopButton.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    backToTopButton.classList.add('opacity-0', 'pointer-events-none');
+                    backToTopButton.classList.remove('opacity-100', 'pointer-events-auto');
+                }
+            });
         </script>
         <script src="/js/main.js"></script>
     </body>

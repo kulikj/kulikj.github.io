@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Jacob Kulik - DJ</title>
+		<title>Jacob Kulik</title>
 		<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
@@ -103,11 +103,14 @@
             }
             .slideshow-controls {
                 position: absolute;
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
+                top: 50%;
+                left: 0;
+                right: 0;
+                transform: translateY(-50%);
                 display: flex;
-                gap: 10px;
+                justify-content: space-between;
+                padding: 0 15px;
+                pointer-events: none; /* This ensures the controls container doesn't block hover */
             }
             .slideshow-controls button {
                 background: rgba(255, 255, 255, 0.8);
@@ -119,11 +122,36 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: background-color 0.3s ease;
+                transition: all 0.3s ease;
+                pointer-events: auto; /* Re-enable pointer events just for buttons */
+                opacity: 0.6;
             }
             .slideshow-controls button:hover {
                 background: rgba(255, 255, 255, 1);
+                opacity: 1;
             }
+
+            /* New caption styles */
+            .slide-caption {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.6);
+                color: white;
+                padding: 10px;
+                text-align: center;
+                font-size: 0.9rem;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                pointer-events: none;
+                border-bottom-left-radius: 0.5rem;
+                border-bottom-right-radius: 0.5rem;
+            }
+            .slideshow-container:hover .slide-caption {
+                opacity: 0.8;
+            }
+            
         </style>
 	</head>
     <body class="bg-gray-50">
@@ -140,7 +168,7 @@
                             <a href="/" class="nav-link text-gray-600">Home</a>
                             <a href="/projects/" class="nav-link text-gray-600">Projects</a>
                             <a href="/chess/" class="nav-link text-gray-600">Chess</a>
-                            <a href="/dj/" class="nav-link text-gray-600">DJ</a>
+                            <a href="/dj/" class="nav-link text-gray-900 font-medium">DJ</a>
                             <a target="_blank" href="/JacobKulikResume.pdf" class="nav-link text-gray-600">Resume</a>
                         </div>
                         <!-- Mobile Menu Button -->
@@ -165,7 +193,7 @@
                             <a href="/" class="mobile-menu-item nav-link text-gray-600 text-lg">Home</a>
                             <a href="/projects/" class="mobile-menu-item nav-link text-gray-600 text-lg">Projects</a>
                             <a href="/chess/" class="mobile-menu-item nav-link text-gray-600 text-lg">Chess</a>
-                            <a href="/dj/" class="mobile-menu-item nav-link text-gray-600 text-lg">DJ</a>
+                            <a href="/dj/" class="mobile-menu-item nav-link text-gray-900 font-medium text-lg">DJ</a>
                             <a target="_blank" href="/JacobKulikResume.pdf" class="mobile-menu-item nav-link text-gray-600 text-lg">Resume</a>
                         </div>
                     </div>
@@ -183,9 +211,15 @@
                 </div>
 
                 <!-- Logo Image -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
                     <div class="flex justify-center">
                         <img src="/pictures/juulik.png" alt="Juulik Logo" class="max-w-xs md:max-w-sm">
+                    </div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
+                    <div class="flex justify-center">
+                        <a href="https://bit.ly/juulik" target="_blank" class="text-gray-500 text-sm hover:text-gray-700 transition-colors duration-300">Electronic Press Kit</a>
                     </div>
                 </div>
 
@@ -194,15 +228,15 @@
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <div class="prose max-w-none">
                             <p class="text-gray-700">
-                                I started DJing in November of 2023 and have been hooked ever since. In that time, I've played over 50 sets across more than 20 venues in Boston — including some of the city’s top bars, clubs, and even boat cruises. I've performed on a wide range of club-standard gear and spin mainly house music, especially disco or tech house. You can find me DJing under the name 'Juulik'.
+                                I started DJing in November of 2023 and have been hooked ever since. In that time, I've played over 50 sets across more than 20 venues in Boston — including some of the city's top bars, clubs, and even boat cruises. I've performed on a wide range of club-standard gear and spin mainly house music, especially disco or tech house. You can find me DJing under the name 'Juulik'.
                             </p>
                             <p class="text-gray-700 mt-6">
                                 <span class="font-semibold">Notable Venues:</span><br>
-                                The Grand, Boston Boat Cruise Summer Series, Loco Fenway (Residency), Scorpion Bar, BSMNT Boston, The Broadway (South Boston), The Harp, Mariel Underground, ICON Nightclub, Candibar Boston, Big Night Live Studio B, Our House East
+                                The Grand Boston, Boston Boat Cruise Summer Series, Loco Fenway (Residency), Scorpion Bar, BSMNT Boston, The Broadway South Boston, The Harp Boston, Mariel Underground, ICON Nightclub, Candibar Boston, Studio B @ BNL, Our House East, Bar Moxy, Fenway Johnnie's
                             </p>
                             <p class="text-gray-700 mt-6">
                                 <span class="font-semibold">Opening / Supporting Acts For:</span><br>
-                                Francis Mercier, Ian Asher, R3WIRE, Goshfather, Mashbit, Jake Silva, DJ Costa, Breakbones
+                                Francis Mercier, Ian Asher, Mashbit, Jake Silva, Goshfather, R3WIRE, DJ Costa, Breakbones
                             </p>
                         </div>
                     </div>
@@ -220,15 +254,15 @@
                         <a href="mailto:dj.juulik@gmail.com" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
                             <i class="fas fa-envelope text-3xl"></i>
                         </a>
-                        <!-- <a href="https://bit.ly/juulik" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
+                        <a href="https://bit.ly/juulik" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
                             <i class="fa-solid fa-camera text-3xl"></i>
-                        </a> -->
+                        </a>
                     </div>
                 </div>
 
                 <!-- Photo Slideshow -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-12">
-                    <div class="slideshow-container">
+                    <div class="slideshow-container relative">
                         <img src="/pictures/dj/dj1.jpg" alt="08/15/2024 @ The Grand" class="slide active">
                         <img src="/pictures/dj/dj2.jpg" alt="01/17/2025 @ BSMNT Boston" class="slide">                        
                         <img src="/pictures/dj/dj3.jpg" alt="01/17/2025 @ BSMNT Boston" class="slide">
@@ -244,6 +278,8 @@
                         <img src="/pictures/dj/dj10.jpg" alt="10/05/2024 @ Loco Fenway" class="slide">
                         <img src="/pictures/dj/dj13.jpg" alt="12/07/2024 @ Loco Fenway" class="slide">
                         
+                        <div class="caption"></div>
+
                         <div class="slideshow-controls">
                             <button onclick="prevSlide()">
                                 <i class="fas fa-chevron-left"></i>
@@ -265,7 +301,7 @@
                             <a href="/" class="nav-link text-gray-600">Home</a>
                             <a href="/projects/" class="nav-link text-gray-600">Projects</a>
                             <a href="/chess/" class="nav-link text-gray-600">Chess</a>
-                            <a href="/dj/" class="nav-link text-gray-600">DJ</a>
+                            <a href="/dj/" class="nav-link text-gray-900 font-medium">DJ</a>
                             <a target="_blank" href="/JacobKulikResume.pdf" class="nav-link text-gray-600">Resume</a>
                         </div>
                     </div>
@@ -274,7 +310,7 @@
         </div>
 
         <!-- Back to Top Button -->
-        <a href="#top" class="fixed bottom-4 right-4 bg-gray-800 text-white rounded-full p-3 transition duration-300 ease-in-out hover:bg-gray-700">
+        <a href="#top" class="fixed bottom-4 right-4 bg-gray-800 text-white rounded-full p-3 transition duration-300 ease-in-out hover:bg-gray-700 opacity-0 pointer-events-none" id="backToTop">
             <i class="fa-solid fa-arrow-up"></i>
         </a>
 
@@ -297,6 +333,26 @@
                 slides[currentSlide].classList.add('active');
             }
 
+            // Create caption element and append it to the slideshow container
+            const slideshowContainer = document.querySelector('.slideshow-container');
+            const captionElement = document.createElement('div');
+            captionElement.className = 'slide-caption';
+            slideshowContainer.appendChild(captionElement);
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentSlide = (index + totalSlides) % totalSlides;
+                slides[currentSlide].classList.add('active');
+                
+                // Update caption text from the current slide's alt attribute
+                const activeSlide = slides[currentSlide];
+                captionElement.textContent = activeSlide.alt;
+            }
+
+            if (slides[0] && slides[0].alt) {
+                captionElement.textContent = slides[0].alt;
+            }
+
             function nextSlide() {
                 showSlide(currentSlide + 1);
             }
@@ -307,6 +363,19 @@
 
             // Auto-advance slideshow every 5 seconds
             setInterval(nextSlide, 5000);
+
+            // Back to top button functionality
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
+                    backToTopButton.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    backToTopButton.classList.add('opacity-0', 'pointer-events-none');
+                    backToTopButton.classList.remove('opacity-100', 'pointer-events-auto');
+                }
+            });
         </script>
         <script src="/js/main.js"></script>
     </body>
