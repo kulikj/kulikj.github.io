@@ -276,10 +276,10 @@
                         <img src="/pictures/dj/dj6.jpg" alt="08/15/2024 @ The Grand" class="slide">
                         <img src="/pictures/dj/dj17.jpg" alt="04/03/2025 @ Boat Cruise Summer Series" class="slide">
                         <img src="/pictures/dj/dj7.jpg" alt="03/21/2025 @ BSMNT Boston" class="slide">
-                        <img src="/pictures/dj/dj8.jpg" alt="10/05/2024 @ Loco Fenway" class="slide">
+                        <!-- <img src="/pictures/dj/dj8.jpg" alt="10/05/2024 @ Loco Fenway" class="slide"> -->
                         <img src="/pictures/dj/dj9.jpg" alt="08/15/2024 @ The Grand" class="slide">
                         <img src="/pictures/dj/dj10.jpg" alt="10/05/2024 @ Loco Fenway" class="slide">
-                        <img src="/pictures/dj/dj13.jpg" alt="12/07/2024 @ Loco Fenway" class="slide">
+                        <!-- <img src="/pictures/dj/dj13.jpg" alt="12/07/2024 @ Loco Fenway" class="slide"> -->
                         
                         <div class="caption"></div>
 
@@ -318,67 +318,49 @@
         </a>
 
         <script>
-            function toggleMobileMenu() {
-                const mobileMenu = document.querySelector('.mobile-menu');
-                const hamburger = document.querySelector('.hamburger');
-                mobileMenu.classList.toggle('active');
-                hamburger.classList.toggle('active');
-            }
-
-            // Slideshow functionality
             let currentSlide = 0;
             const slides = document.querySelectorAll('.slide');
             const totalSlides = slides.length;
-
-            function showSlide(index) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                currentSlide = (index + totalSlides) % totalSlides;
-                slides[currentSlide].classList.add('active');
-            }
-
-            // Create caption element and append it to the slideshow container
+        
             const slideshowContainer = document.querySelector('.slideshow-container');
             const captionElement = document.createElement('div');
             captionElement.className = 'slide-caption';
             slideshowContainer.appendChild(captionElement);
-
+        
+            let slideTimer; // store the timeout ID
+        
             function showSlide(index) {
                 slides.forEach(slide => slide.classList.remove('active'));
                 currentSlide = (index + totalSlides) % totalSlides;
                 slides[currentSlide].classList.add('active');
-                
-                // Update caption text from the current slide's alt attribute
+        
                 const activeSlide = slides[currentSlide];
                 captionElement.textContent = activeSlide.alt;
+        
+                resetAutoAdvance(); // reset the timer on each slide change
             }
-
-            if (slides[0] && slides[0].alt) {
-                captionElement.textContent = slides[0].alt;
-            }
-
+        
             function nextSlide() {
                 showSlide(currentSlide + 1);
             }
-
+        
             function prevSlide() {
                 showSlide(currentSlide - 1);
             }
-
-            // Auto-advance slideshow every 5 seconds
-            setInterval(nextSlide, 5000);
-
-            // Back to top button functionality
-            const backToTopButton = document.getElementById('backToTop');
-            
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
-                    backToTopButton.classList.add('opacity-100', 'pointer-events-auto');
-                } else {
-                    backToTopButton.classList.add('opacity-0', 'pointer-events-none');
-                    backToTopButton.classList.remove('opacity-100', 'pointer-events-auto');
-                }
-            });
+        
+            function resetAutoAdvance() {
+                clearTimeout(slideTimer);
+                slideTimer = setTimeout(nextSlide, 6000);
+            }
+        
+            // Initialize first slide
+            if (slides[0]) {
+                showSlide(0);
+            }
+        
+            // Add event listeners if you have buttons (optional)
+            document.getElementById('nextButton')?.addEventListener('click', nextSlide);
+            document.getElementById('prevButton')?.addEventListener('click', prevSlide);
         </script>
         <script src="/js/main.js"></script>
     </body>
