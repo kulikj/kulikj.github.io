@@ -318,6 +318,13 @@
         </a>
 
         <script>
+            function toggleMobileMenu() {
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const hamburger = document.querySelector('.hamburger');
+                mobileMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            }
+
             let currentSlide = 0;
             const slides = document.querySelectorAll('.slide');
             const totalSlides = slides.length;
